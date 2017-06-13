@@ -23,7 +23,7 @@ void setup() {
     Serial.begin(9600);
 
     lcd.begin(16,2);
-    lcd.print("AutoGarden 0.0.1");
+    lcd.print("AutoGarden 0.0.2");
 
     pinMode(6,INPUT_PULLUP);
     pinMode(13,OUTPUT);
@@ -48,7 +48,7 @@ void loop() {
     digitalWrite(13, HIGH);
     lcd.setCursor(0,1);
     lcd.print("Water Module MIA");
-    delay(3000);
+    delay(1000);
   }  
 
 //Photocell Loop
