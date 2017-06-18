@@ -19,21 +19,6 @@
   const int sensorMax = 800;
   int photocellPin = A0;
 
-<<<<<<< HEAD
-//Button Setup
-=======
-void setup() {
-
-    Serial.begin(9600);
-
-    lcd.begin(16,2);
-    lcd.print("AutoGarden 0.0.2");
-
-    pinMode(6,INPUT_PULLUP);
-    pinMode(13,OUTPUT);
-}
->>>>>>> origin/master
-
   Button lbutton(7,true,true,25);
   Button rbutton(6,true,true,25);
   Button sbutton(8,true,true,25);
@@ -55,14 +40,13 @@ void setup() {
   
   lcd.print(appName);
 
-<<<<<<< HEAD
 }
+
 //Menu Array Setup
 
-  char menuArray[3][10] = {"Light","Water","Setup"};
-  int maPtr = 1;
+  char menuArray[3][10] = {"1. Light","2. Water","3. Setup"};
+  int maPtr = 0;
   bool menu2 = false;
-    
 
 /////////////////
 //PROGRAM START//
@@ -70,63 +54,7 @@ void setup() {
 
   void loop() {
 
-lbutton.read();
-rbutton.read();
-sbutton.read();
-xbutton.read();
-
-  switch (STATE) {
-        
-    case WAIT:
-      if (lbutton.wasPressed())
-        STATE = DECR;
-      else if (rbutton.wasPressed())
-        STATE = INCR;
-      else if (sbutton.wasPressed())
-        STATE = SELC;
-      else if (xbutton.wasPressed())
-        STATE = BACK;
-      else if (lbutton.wasReleased())
-        rpt = 500;
-      else if (rbutton.wasReleased())
-        rpt = 500;        
-      else if (lbutton.pressedFor(rpt)) {
-        rpt += 100;
-        STATE = DECR;
-      }
-      else if (rbutton.pressedFor(rpt)) {
-        rpt += 100;
-        STATE = INCR;
-      }
-        break;
-
-      case SELC:
-        lcd.clear();
-        lcd.print(menuArray[maPtr]);
-        lcd.setCursor(0,1);
-        lcd.print("SUBMENU");
-
-      case INCR:
-        maPtr = min(maPtr++, 2);
-        STATE = WAIT;
-        break;
-
-      case DECR:
-        maPtr = max(maPtr--, 0); 
-        STATE = WAIT;
-        break;
-
-    }
-=======
-  if (sensorVal == HIGH) {
-    digitalWrite(13, LOW);
-  } else {
-    digitalWrite(13, HIGH);
-    lcd.setCursor(0,1);
-    lcd.print("Water Module MIA");
-    delay(1000);
-  }  
->>>>>>> origin/master
+  menu();
 
 //Button Loop
 
