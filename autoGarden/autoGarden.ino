@@ -25,17 +25,17 @@ void setup() {
 
   Serial.begin(115200);
 
-  char appName[] = "Autogarden 0.0.3";
+  char appName[] = "autoGarden 0.0.4";
 
   lcd.begin(16,2);
   lcd.setCursor(0,0);
   lcd.print(appName);
   lcd.setCursor(0,1);
-  lcd.print("Press Start");
+  lcd.print("Press Any Button");
 }
 
   void loop() {
-
+  
   menu();
 
 }
